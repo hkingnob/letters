@@ -49,7 +49,18 @@ section { margin-bottom: 40px; }
   box-shadow: 0 1px 0 #fff inset, 0 6px 18px rgba(0,0,0,0.05);
 }
 .auth-card { width: 360px; max-width: 100%; text-align: center; }
-.logo { font-size: 2rem; margin: 0 0 24px; }
+.logo { font-size: 2rem; margin: 0 0 18px; }
+
+.how {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 24px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+.how li { padding: 5px 0 5px 18px; position: relative; line-height: 1.4; }
+.how li::before { content: "·"; position: absolute; left: 4px; color: var(--ink); }
 
 label { display: block; text-align: left; margin-bottom: 16px; font-size: 0.95rem; }
 input, select {
