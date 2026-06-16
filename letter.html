@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>A letter · Letters</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar no-print">
+    <a class="brand" href="mailbox.html">← Mailbox</a>
+  </header>
+
+  <main class="page narrow">
+    <!-- Sealed state (shown to a recipient who hasn't opened it yet) -->
+    <div id="seal" class="sealbox" style="display:none">
+      <div class="wax">✦</div>
+      <p>A letter has arrived.</p>
+      <button id="breakSeal" class="btn">Open</button>
+    </div>
+
+    <!-- The letter itself -->
+    <div id="content" class="letter-content"></div>
+
+    <!-- Print encouragement (shown after reveal) -->
+    <div id="printNudge" class="print-nudge no-print" style="display:none">
+      <p>Print it to read on paper.</p>
+      <button id="printBtn" class="btn small">Print</button>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/letter.js"></script>
+</body>
+</html>

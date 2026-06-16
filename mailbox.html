@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mailbox · Letters</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <span id="hello" class="brand">Mailbox</span>
+    <nav>
+      <a class="btn small" href="compose.html">Write a letter</a>
+      <a id="logout" class="link" href="#">Log out</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <section>
+      <h2>Arrived</h2>
+      <div id="received" class="envelopes"></div>
+    </section>
+
+    <section>
+      <h2>Sent</h2>
+      <div id="sent" class="sentlist"></div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/location.js"></script>
+  <script src="js/mailbox.js"></script>
+</body>
+</html>

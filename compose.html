@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Write a letter · Letters</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="mailbox.html">← Mailbox</a>
+  </header>
+
+  <main class="page narrow">
+    <h2>Write a letter</h2>
+    <p class="muted">Attach a file — a photo of a note, a document, anything. Once posted, it can't be unsent, and it arrives in a few days.</p>
+
+    <form id="composeForm" class="card">
+      <label>To
+        <select id="recipient" required></select>
+      </label>
+      <label>Your letter (a file)
+        <input id="file" type="file" required />
+      </label>
+      <button id="postBtn" class="btn" type="submit">Post it</button>
+      <p class="muted small">Posting reads your device's location for the postmark and to work out how long it travels. You'll be asked to allow location — it's required.</p>
+    </form>
+
+    <p id="status" class="status"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/location.js"></script>
+  <script src="js/distance.js"></script>
+  <script src="js/compose.js"></script>
+</body>
+</html>

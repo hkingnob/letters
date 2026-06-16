@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Letters</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="centered">
+  <main class="card auth-card">
+    <h1 class="logo">Letters</h1>
+
+    <form id="authForm">
+      <label>First name
+        <input id="firstName" type="text" autocomplete="username" required />
+      </label>
+      <label>Password
+        <input id="password" type="password" autocomplete="current-password" required minlength="6" />
+      </label>
+      <button id="submitBtn" class="btn" type="submit">Log in</button>
+    </form>
+
+    <p class="toggle">
+      <span id="toggleText">New here?</span>
+      <a id="toggleLink" href="#">Create an account</a>
+    </p>
+    <p id="status" class="status"></p>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    let mode = "login";
+    const f = document.getElementById("authForm");
+    const submitBtn = document.getElementById("submitBtn");
+    const toggleText = document.getElementById("toggleText");
+    const toggleLink = document.getElementById("toggleLink");
+    const statusEl = document.getElementById("status");
+
+    function setMode(m) {
+      mode = m;
+      submitBtn.textContent = m === "login" ? "Log in" : "Create account";
+      toggleText.textContent = m === "login" ? "New here?" : "Already have an account?";
+      toggleLink.textContent = m === "login" ? "Create an account" : "Log in";
+      statusEl.textContent = "";
+    }
+    toggleLink.addEventListener("click", (e) => { e.preventDefault(); setMode(mode === "login" ? "signup" : "login"); });
+
+    // If already signed in, go straight to the mailbox.
+    db.auth.getSession().then(({ data: { session } }) => {
+      if (session) window.location.href = "mailbox.html";
+    });
+
+    f.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      submitBtn.disabled = true;
+      statusEl.className = "status";
+      const name = document.getElementById("firstName").value;
+      const pw = document.getElementById("password").value;
+      try {
+        if (mode === "signup") await signUp(name, pw);
+        else await logIn(name, pw);
+        window.location.href = "mailbox.html";
+      } catch (err) {
+        statusEl.className = "status error";
+        statusEl.textContent = err.message || "Couldn't sign in.";
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>
