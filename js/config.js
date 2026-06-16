@@ -11,8 +11,8 @@
 // Do NOT put the "service_role" key here.
 // ──────────────────────────────────────────────────────────────
 
-const SUPABASE_URL = "https://YOUR-PROJECT.supabase.co";
-const SUPABASE_ANON_KEY = "YOUR-ANON-PUBLIC-KEY";
+const SUPABASE_URL = "https://dejlsxncehhbhcqdgddx.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_qXbbwoJdwSmCZJH-a1LZwg_gwRFlcEw";
 
 // Synthetic email domain used to turn a first name into a login.
 // You never see this; it just satisfies Supabase's email-based auth.
