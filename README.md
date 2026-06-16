@@ -65,3 +65,6 @@ css/style.css   styling
 
 ## Costs
 GitHub Pages + Supabase free tier. For two people you're far under every limit. Nothing to pay.
+
+## Ideas parked for later
+- **Email notification when a letter arrives.** Note: this is the one feature that needs more than the current setup. Right now there's no server or timer — arrival is computed whenever someone opens the app. To send an email *at* the delivery moment, you'd add something that runs on a schedule (e.g. Supabase's `pg_cron` + a Scheduled Edge Function) to find letters whose `deliver_at` just passed and send mail via a free email service like Resend. Supabase's free tier covers this; it's a moderate add, not a quick one.
