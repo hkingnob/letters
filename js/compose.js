@@ -79,8 +79,8 @@ async function postLetter(evt) {
     });
     if (ins.error) throw ins.error;
 
-    const days = Math.round((deliver - Date.now()) / 86400000);
-    setStatus(`Posted from ${here.city}. Arrives in about ${days} day${days === 1 ? "" : "s"}.`);
+    const arrival = deliver.toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" });
+    setStatus(`Posted from ${here.city}. Arriving ${arrival}.`);
     document.getElementById("composeForm").reset();
   } catch (e) {
     setStatus(e.message || "Something went wrong.", true);
